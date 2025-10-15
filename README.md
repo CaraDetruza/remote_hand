@@ -83,7 +83,7 @@ At this point you supposed to have a glove with the flex sensor and led finger s
 ### Server (Raspberry Pi)
 At this point you supposed to have a remote robotic hand with 6 servos. You could follow the connection schema for robotic hand provided below
 
-1. From a console whitin the Zero 2W (with raspberry OS) run `cd ~; git clone <URL-del-repositorio>`
+1. From a console whitin the Zero 2W (with raspberry OS) run `cd ~; git clone CaraDetruza/remote_hand`
 2. `cd remote_hand/reciever`
 3. Run `main.py`.
 
@@ -91,7 +91,15 @@ At this point you supposed to have a remote robotic hand with 6 servos. You coul
 
 - **Protocol:** UDP
 - The client sends a data packet containing the mapped angle values for each finger.
-- The server receives the data and moves the corresponding servos.
+- Data payload is 5 bytes length and each byte can have values from 0 to 180, corresponding to the current angle in degrees.
+```
+Payload
+byte 0 - double pourpose, if byte is 255, thats a handshake message, otherwise value corresponds to first finger angle
+bytes 1 to 4 - fingers angles
+```
+The finger indexes are declared in `common/misc.py`.
+- The server receives the data unpack it and move the servo with the corresponding angle.
+- If message is handshake, server send handshake back to the client.
 
 ## License
 
