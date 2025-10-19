@@ -62,13 +62,24 @@ This directory contain common files for the sender and reciever.
 - **client.py** Class for setting up the client, read whole hand data and send it to server.
 - **main.py** main client file
 
-## Images / Videos
+## Images
+The client (sender) is made of a glove with the sensors attached as shwon below
 
-N/A
+![Sender glove](assets/full_sender.jpeg)
+
+![Sender glove](assets/glove.jpeg)
+
+![Sender glove](assets/sender_esp.jpeg)
+
+And the reciever is the printed 3D hand with servos
+
+![Sender glove](assets/full_rec.jpeg)
+
+![Sender glove](assets/hand.jpeg)
 
 ## Connection diagrams
 
-N/A
+Todo
 
 ## Installation
 
